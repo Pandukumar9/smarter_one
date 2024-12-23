@@ -57,3 +57,16 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+npm install express pg sequelize cors body-parser
+
+
+npm install express pg sequelize socket.io cors body-parser qrcode dotenv
+
+express: Web framework.
+pg: PostgreSQL client for Node.js.
+sequelize: ORM to interact with PostgreSQL.
+socket.io: For WebSocket real-time communication.
+qrcode: For generating QR codes.
+dotenv: To load environment variables.
