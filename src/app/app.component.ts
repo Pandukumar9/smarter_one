@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { io } from 'socket.io-client';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,26 +10,44 @@ import { io } from 'socket.io-client';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+
   title = 'smart_one';
 
-  private socket: any;
+  constructor(private api:ApiService){}
 
   ngOnInit() {
-    this.socket = io('http://localhost:5000');
 
-    this.socket.on('order-notification', (order:any) => {
-      console.log('New order received:', order);
-      // Handle order notification (e.g., update UI)
-    });
   }
 
-  data = {
-    item: 'dosa',
-    dosaname: 'Masala',
-    quantity: 3,
+  addAcct(){
+    const obj = {
+      name: 'jaanse',
+      type: 'saving',
+      balance: 10000
+    }
+    this.api.postAct(obj).subscribe(res => {
+      console.log(res,'res');
+    })
   }
-  // Function to emit new order to server
-  placeOrder(orderDetails: any) {
-    this.socket.emit('new-order', orderDetails);
-  }
+
+  // private socket: any;
+
+  // ngOnInit() {
+  //   this.socket = io('http://localhost:5000');
+
+  //   this.socket.on('order-notification', (order:any) => {
+  //     console.log('New order received:', order);
+  //     // Handle order notification (e.g., update UI)
+  //   });
+  // }
+
+  // data = {
+  //   item: 'dosa',
+  //   dosaname: 'Masala',
+  //   quantity: 3,
+  // }
+  // // Function to emit new order to server
+  // placeOrder(orderDetails: any) {
+  //   this.socket.emit('new-order', orderDetails);
+  // }
 }
