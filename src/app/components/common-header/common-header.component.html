@@ -37,7 +37,7 @@
         </li>
       </ul>
 
-      <!-- Notification Bell and Profile Dropdown -->
+      <!-- Notification Bell, Cart, and Profile Dropdown -->
       <ul class="navbar-nav ms-auto">
         <!-- Notification Bell -->
         <li class="nav-item dropdown">
@@ -64,6 +64,25 @@
               <span class="dropdown-item text-muted">No notifications</span>
             </li>
           </ul>
+        </li>
+
+        <!-- Cart -->
+        <li class="nav-item">
+          <a
+            class="nav-link position-relative"
+            routerLink="/cart"
+            routerLinkActive="active"
+            aria-label="Cart"
+          >
+            <i class="bi bi-cart"></i>
+            @if (orderlength > 0) {
+              <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark"
+            >
+              {{ orderlength }}
+            </span>
+            }
+          </a>
         </li>
 
         <!-- Profile -->

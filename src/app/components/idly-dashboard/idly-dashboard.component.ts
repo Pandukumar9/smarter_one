@@ -11,7 +11,7 @@ import { NgFor } from '@angular/common';
 export class IdlyDashboardComponent {
   idlies = [
     {
-      id: 1,
+      id: 4,
       name: 'Steamed Idly',
       description: 'Soft and fluffy idlies served with chutney and sambar.',
       price: 60,
@@ -22,7 +22,7 @@ export class IdlyDashboardComponent {
       ]
     },
     {
-      id: 2,
+      id: 5,
       name: 'Rava Idly',
       description: 'A flavorful variation made with semolina and spices.',
       price: 80,
@@ -33,7 +33,7 @@ export class IdlyDashboardComponent {
       ]
     },
     {
-      id: 3,
+      id: 6,
       name: 'Fried Idly',
       description: 'Crispy fried idly cubes tossed with spices and curry leaves.',
       price: 70,

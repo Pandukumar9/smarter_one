@@ -11,7 +11,7 @@ import { NgFor } from '@angular/common';
 export class BondaDashboardComponent {
   bondas = [
     {
-      id: 1,
+      id: 7,
       name: 'Aloo Bonda',
       description: 'Deep-fried snack made with mashed spiced potatoes coated in gram flour.',
       price: 50,
@@ -22,7 +22,7 @@ export class BondaDashboardComponent {
       ]
     },
     {
-      id: 2,
+      id: 8,
       name: 'Mysore Bonda',
       description: 'Crispy and fluffy bonda made with all-purpose flour and yogurt.',
       price: 60,
@@ -33,7 +33,7 @@ export class BondaDashboardComponent {
       ]
     },
     {
-      id: 3,
+      id: 9,
       name: 'Sweet Bonda',
       description: 'Delicious sweet bonda filled with coconut and jaggery.',
       price: 70,

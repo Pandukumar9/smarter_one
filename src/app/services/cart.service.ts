@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
+  cartlength = new BehaviorSubject(0);
   constructor() { }
   private cart: any[] = [];
 
@@ -15,6 +17,7 @@ export class CartService {
     } else {
       this.cart.push({ ...item }); // Add new item
     }
+    this.cartlength.next(this.cart.length);
     console.log(`${item.name} (x${item.quantity}) added to the cart!`);
   }
 

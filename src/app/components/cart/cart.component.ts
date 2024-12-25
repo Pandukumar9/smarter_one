@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,7 @@ import { NgFor, NgIf } from '@angular/common';
 export class CartComponent {
   cartItems: any[] = [];
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,private route:Router) {
     this.cartItems = this.cartService.getCart();
   }
 
@@ -40,5 +41,14 @@ export class CartComponent {
     this.cartService.clearCart();
     this.cartItems = [];
   }
+
+  proceedToBuy() {
+    // Example logic: Navigate to the checkout page or process the order
+    console.log('Proceeding to buy:', this.cartItems);
+
+    // Example: Navigate to the checkout page
+    this.route.navigate(['/checkout']);
+  }
+
 
 }

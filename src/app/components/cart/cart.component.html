@@ -4,6 +4,7 @@
 
     <!-- Empty Cart Message -->
     <div *ngIf="cartItems.length === 0" class="text-center text-muted">
+      <img src="cart.png" alt="Empty Cart" class="mb-3" style="width: 150px;">
       <p>Your cart is empty!</p>
     </div>
 
@@ -48,9 +49,19 @@
         <h4 class="fw-bold">Total: ₹{{ getTotalPrice() }}</h4>
       </div>
 
-      <!-- Clear Cart Button -->
-      <div class="text-center mt-3">
+      <!-- Action Buttons -->
+      <div class="d-flex justify-content-between mt-4">
+        <!-- Clear Cart Button -->
         <button class="btn btn-danger" (click)="clearCart()">Clear Cart</button>
+
+        <!-- Proceed to Buy Button -->
+        <button
+          class="btn btn-success"
+          (click)="proceedToBuy()"
+          [disabled]="cartItems.length === 0"
+        >
+          Proceed to Buy
+        </button>
       </div>
     </div>
   </div>
