@@ -1,6 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-checkout',
   imports: [FormsModule, NgFor,NgIf],
@@ -8,6 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent {
+  constructor(private route:Router){}
   cartItems = [
     { id: 1, name: 'Dosa', price: 50, quantity: 2 },
     { id: 2, name: 'Idly', price: 30, quantity: 3 },
@@ -41,5 +43,11 @@ export class CheckoutComponent {
     });
     // Clear cart after order is placed
     this.cartItems = [];
+    this.userDetails = {
+      name: '',
+      email: '',
+      address: '',
+    };
+    this.route.navigate(['/dashboard']);
   }
 }

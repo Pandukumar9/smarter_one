@@ -1,0 +1,41 @@
+/* General Styles */
+.card {
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+/* Custom Hover Effect for Cards */
+.hover-card:hover {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Counter Animation */
+.counter {
+  animation: counterAnim 1s ease-in-out;
+}
+
+/* Table Styles */
+.table-hover tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Animation for Counter Numbers */
+@keyframes counterAnim {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

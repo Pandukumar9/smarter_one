@@ -41,6 +41,22 @@
               +
             </button>
           </div>
+          <div class="ms-3">
+            <!-- Save for Later Button -->
+            <button
+              class="btn btn-warning btn-sm me-2"
+              (click)="saveForLater(item)"
+            >
+              Save for Later
+            </button>
+            <!-- Delete Button -->
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="removeItem(item)"
+            >
+              Delete
+            </button>
+          </div>
         </li>
       </ul>
 
@@ -63,6 +79,40 @@
           Proceed to Buy
         </button>
       </div>
+    </div>
+
+    <!-- Save for Later Section -->
+    <div *ngIf="savedItems.length > 0" class="mt-5">
+      <h3>Saved for Later</h3>
+      <ul class="list-group mb-4">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+          *ngFor="let item of savedItems"
+        >
+          <div>
+            <strong>{{ item.name }}</strong>
+            <p class="mb-0 text-muted">
+              ₹{{ item.price }}
+            </p>
+          </div>
+          <div>
+            <!-- Move to Cart Button -->
+            <button
+              class="btn btn-primary btn-sm"
+              (click)="moveToCart(item)"
+            >
+              Move to Cart
+            </button>
+            <!-- Delete from Saved Items Button -->
+            <button
+              class="btn btn-danger btn-sm ms-2"
+              (click)="removeFromSavedItems(item)"
+            >
+              Delete
+            </button>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

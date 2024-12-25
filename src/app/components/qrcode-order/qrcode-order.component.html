@@ -1,0 +1,19 @@
+<div class="qr-code-container">
+  <h2>Scan the QR Code</h2>
+  <div class="qr-code-wrapper">
+    <qrcode
+      (qrCodeURL)="onChangeURL($event)"
+      [qrdata]="myAngularxQrCode"
+      [width]="256"
+      [errorCorrectionLevel]="'M'">
+    </qrcode>
+  </div>
+  <p class="qr-code-description">
+    Scan this QR code using your mobile device to access the ordering system for this table.
+  </p>
+  <a [href]="qrCodeDownloadLink" download="qrcode" class="download-link">
+    <button mat-raised-button color="primary">
+      <mat-icon>download</mat-icon> Download QR Code
+    </button>
+  </a>
+</div>

@@ -5,11 +5,11 @@ import { CommonModule } from '@angular/common';
 import { CommonHeaderComponent } from './components/common-header/common-header.component';
 import { CommonFooterComponent } from './components/common-footer/common-footer.component';
 import { CommonSidebarComponent } from './components/common-sidebar/common-sidebar.component';
-import { CartComponent } from './components/cart/cart.component';
-// import QRCode from 'qrcode';
+import { SafeUrl } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,CommonModule,CommonHeaderComponent,CommonFooterComponent,CommonSidebarComponent,CartComponent],
+  imports: [RouterOutlet,CommonModule,CommonHeaderComponent,CommonFooterComponent,CommonSidebarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   encapsulation: ViewEncapsulation.None
@@ -17,8 +17,11 @@ import { CartComponent } from './components/cart/cart.component';
 export class AppComponent implements OnInit {
 
   title = 'smart_one';
-
-  constructor(private api:ApiService){}
+  url2='www.google.com';
+  constructor(private api:ApiService){
+    // this.myAngularxQrCode = 'Your QR code data string';
+    this.myAngularxQrCode = `${this.url2}`;
+  }
 
   isstyle:boolean=true;
   isstyle2:boolean=true;
@@ -82,4 +85,12 @@ export class AppComponent implements OnInit {
     { name: 'sample2', type: 'Cold', area: 'Al Ain', price: 20.0, verification: 'Under Process' },
     { name: 'sample0909', type: 'Ambient', area: 'Dubai Metropolitan Area', price: 30.0, verification: 'Under Process' }
   ];
+
+  public myAngularxQrCode: string = "";
+  public qrCodeDownloadLink: SafeUrl = "";
+
+
+  onChangeURL(url: SafeUrl) {
+    this.qrCodeDownloadLink = url;
+  }
 }

@@ -50,5 +50,31 @@ export class CartComponent {
     this.route.navigate(['/checkout']);
   }
 
+  savedItems: any[] = [];
+
+
+  // Remove item from cart
+  removeItem(item: any): void {
+    this.cartItems = this.cartItems.filter(cartItem => cartItem !== item);
+  }
+
+  // Save for later
+  saveForLater(item: any): void {
+    this.savedItems.push(item);
+    this.removeItem(item);
+  }
+
+  // Move to cart from saved items
+  moveToCart(item: any): void {
+    this.cartItems.push(item);
+    this.removeFromSavedItems(item);
+  }
+
+  // Remove from saved items
+  removeFromSavedItems(item: any): void {
+    this.savedItems = this.savedItems.filter(savedItem => savedItem !== item);
+  }
+
+
 
 }
