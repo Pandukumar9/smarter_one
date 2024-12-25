@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <h2 class="text-center mb-4">Idly Dashboard</h2>
-  <div class="row">
-    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let idly of idlies">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let idly of idlies">
       <app-food-card [item]="idly"></app-food-card>
     </div>
   </div>

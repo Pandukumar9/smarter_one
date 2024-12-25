@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { CommonHeaderComponent } from './components/common-header/common-header.component';
 import { CommonFooterComponent } from './components/common-footer/common-footer.component';
 import { CommonSidebarComponent } from './components/common-sidebar/common-sidebar.component';
+import { CartComponent } from './components/cart/cart.component';
 // import QRCode from 'qrcode';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,CommonModule,CommonHeaderComponent,CommonFooterComponent,CommonSidebarComponent],
+  imports: [RouterOutlet,CommonModule,CommonHeaderComponent,CommonFooterComponent,CommonSidebarComponent,CartComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   encapsulation: ViewEncapsulation.None

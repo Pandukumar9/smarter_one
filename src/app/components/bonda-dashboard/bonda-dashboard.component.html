@@ -1,0 +1,8 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Bonda Dashboard</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let bonda of bondas">
+      <app-food-card [item]="bonda"></app-food-card>
+    </div>
+  </div>
+</div>

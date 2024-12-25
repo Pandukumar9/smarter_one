@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <div class="card shadow-lg p-4">
+    <h2 class="text-center mb-4">Your Cart</h2>
+
+    <!-- Empty Cart Message -->
+    <div *ngIf="cartItems.length === 0" class="text-center text-muted">
+      <p>Your cart is empty!</p>
+    </div>
+
+    <!-- Cart Items List -->
+    <div *ngIf="cartItems.length > 0">
+      <ul class="list-group mb-4">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+          *ngFor="let item of cartItems"
+        >
+          <div>
+            <strong>{{ item.name }}</strong>
+            <p class="mb-0 text-muted">
+              ₹{{ item.price }} x {{ item.quantity }}
+            </p>
+          </div>
+          <div class="d-flex align-items-center">
+            <!-- Decrement Button -->
+            <button
+              class="btn btn-outline-secondary btn-sm"
+              (click)="decrementQuantity(item)"
+              [disabled]="item.quantity === 1"
+              style="border-radius: 50%; width: 30px; height: 30px;"
+            >
+              -
+            </button>
+            <span class="mx-3">{{ item.quantity }}</span>
+            <!-- Increment Button -->
+            <button
+              class="btn btn-outline-secondary btn-sm"
+              (click)="incrementQuantity(item)"
+              style="border-radius: 50%; width: 30px; height: 30px;"
+            >
+              +
+            </button>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Total Price -->
+      <div class="text-center">
+        <h4 class="fw-bold">Total: ₹{{ getTotalPrice() }}</h4>
+      </div>
+
+      <!-- Clear Cart Button -->
+      <div class="text-center mt-3">
+        <button class="btn btn-danger" (click)="clearCart()">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

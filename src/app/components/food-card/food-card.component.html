@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card shadow-lg mb-4" style="border-radius: 15px; overflow: hidden;">
   <!-- Carousel -->
   <div [id]="'carousel-' + item.id" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -7,7 +7,7 @@
         *ngFor="let image of item.images; let i = index"
         [class.active]="i === 0"
       >
-        <img [src]="image" class="d-block w-100" alt="{{ item.name }}">
+        <img [src]="image" class="d-block w-100" alt="{{ item.name }}" style="max-height: 200px; object-fit: cover;">
       </div>
     </div>
     <!-- Carousel Controls -->
@@ -33,9 +33,40 @@
 
   <!-- Card Body -->
   <div class="card-body">
-    <h5 class="card-title">{{ item.name }}</h5>
-    <p class="card-text">{{ item.description }}</p>
-    <p class="card-text"><strong>Price:</strong> ₹{{ item.price }}</p>
-    <button class="btn btn-primary">Order Now</button>
+    <h5 class="card-title text-center fw-bold" style="color: #333;">{{ item.name }}</h5>
+    <p class="card-text text-center" style="color: #555;">{{ item.description }}</p>
+    <p class="card-text text-center text-primary fw-bold">
+      <strong>Price:</strong> ₹{{ item.price }}
+    </p>
+
+    <!-- Increment/Decrement Buttons -->
+    <div class="d-flex justify-content-center align-items-center my-3">
+      <button
+        class="btn btn-outline-secondary"
+        (click)="decrementQuantity(item)"
+        [disabled]="item.quantity === 0"
+        style="border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;"
+      >
+        -
+      </button>
+      <span class="mx-4 fs-5">{{ item.quantity }}</span>
+      <button
+        class="btn btn-outline-secondary"
+        (click)="incrementQuantity(item)"
+        style="border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;"
+      >
+        +
+      </button>
+    </div>
+
+    <!-- Add to Cart Button -->
+    <button
+      class="btn btn-primary w-100 fw-bold"
+      [disabled]="item.quantity === 0"
+      (click)="addToCart(item)"
+      style="border-radius: 30px;"
+    >
+      Add to Cart
+    </button>
   </div>
 </div>

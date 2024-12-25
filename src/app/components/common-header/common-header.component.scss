@@ -5,3 +5,9 @@
 .navbar-brand img {
   margin-right: 10px;
 }
+body {
+  padding-top: 56px; /* Height of the navbar */
+}
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
