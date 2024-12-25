@@ -1,0 +1,59 @@
+<!-- <div class="container mt-4">
+  <h2 class="text-center mb-4">Dosa Dashboard</h2>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let dosa of dosas">
+      <div class="card">
+        Bootstrap Carousel
+        <div id="carousel-{{ dosa.id }}" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div
+              class="carousel-item"
+              *ngFor="let image of dosa.images; let i = index"
+              [class.active]="i === 0"
+            >
+              <img [src]="image" class="d-block w-100" alt="{{ dosa.name }}">
+            </div>
+          </div>
+          Carousel Controls
+          <button
+            class="carousel-control-prev"
+            type="button"
+            [attr.data-bs-target]="'#carousel-' + dosa.id"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            [attr.data-bs-target]="'#carousel-' + dosa.id"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        Card Body
+        <div class="card-body">
+          <h5 class="card-title">{{ dosa.name }}</h5>
+          <p class="card-text">
+            {{ dosa.description }}
+          </p>
+          <p class="card-text"><strong>Price:</strong> ₹{{ dosa.price }}</p>
+          <button class="btn btn-primary">Order Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Dosa Dashboard</h2>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let dosa of dosas">
+      <app-food-card [item]="dosa"></app-food-card>
+    </div>
+  </div>
+</div>

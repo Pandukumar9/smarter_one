@@ -1,0 +1,18 @@
+.sidebar {
+  height: 100vh;
+  padding-top: 20px;
+}
+
+.sidebar .nav-link.active {
+  font-weight: bold;
+  background-color: #212529;
+}
+
+.table {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+}

@@ -1,10 +1,11 @@
+import { NgFor } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { io } from 'socket.io-client';
 
 @Component({
   selector: 'app-orders',
-  imports: [],
+  imports: [NgFor],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.scss'
 })
@@ -19,37 +20,42 @@ export class OrdersComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.socket = io('http://localhost:5000');
+    // this.socket = io('http://localhost:5000');
 
-    this.socket.on('order-notification', (order: any) => {
-      console.log('New order notification:', order);
-    });
+    // this.socket.on('order-notification', (order: any) => {
+    //   console.log('New order notification:', order);
+    // });
 
-    // Fetch menu items
-    this.http.get(`http://localhost:5000/api/menu/${this.restaurantId}`).subscribe((data: any) => {
-      this.menuItems = data;
-    });
+    // // Fetch menu items
+    // this.http.get(`http://localhost:5000/api/menu/${this.restaurantId}`).subscribe((data: any) => {
+    //   this.menuItems = data;
+    // });
   }
 
   placeOrder() {
-    const orderDetails = {
-      customerName: this.customerName,
-      customerPhone: this.customerPhone,
-      items: this.selectedItems,
-    };
+    // const orderDetails = {
+    //   customerName: this.customerName,
+    //   customerPhone: this.customerPhone,
+    //   items: this.selectedItems,
+    // };
 
-    this.http.post('http://localhost:5000/api/orders', orderDetails).subscribe(response => {
-      console.log('Order placed:', response);
-      this.socket.emit('new-order', orderDetails);  // Send order notification to server
-    });
+    // this.http.post('http://localhost:5000/api/orders', orderDetails).subscribe(response => {
+    //   console.log('Order placed:', response);
+    //   this.socket.emit('new-order', orderDetails);  // Send order notification to server
+    // });
   }
 
   toggleItemSelection(itemId: number) {
-    const index = this.selectedItems.indexOf(itemId);
-    if (index === -1) {
-      this.selectedItems.push(itemId);
-    } else {
-      this.selectedItems.splice(index, 1);
-    }
+    // const index = this.selectedItems.indexOf(itemId);
+    // if (index === -1) {
+    //   this.selectedItems.push(itemId);
+    // } else {
+    //   this.selectedItems.splice(index, 1);
+    // }
   }
+
+  warehouses = [
+    { name: 'sample2', type: 'Cold', area: 'Al Ain', price: 20.0, verification: 'Under Process' },
+    { name: 'sample0909', type: 'Ambient', area: 'Dubai Metropolitan Area', price: 30.0, verification: 'Under Process' }
+  ];
 }

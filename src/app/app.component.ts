@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { io } from 'socket.io-client';
 import { ApiService } from './services/api.service';
-
+import { CommonModule } from '@angular/common';
+import { CommonHeaderComponent } from './components/common-header/common-header.component';
+import { CommonFooterComponent } from './components/common-footer/common-footer.component';
+import { CommonSidebarComponent } from './components/common-sidebar/common-sidebar.component';
+// import QRCode from 'qrcode';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,CommonModule,CommonHeaderComponent,CommonFooterComponent,CommonSidebarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
 
@@ -15,15 +19,18 @@ export class AppComponent implements OnInit {
 
   constructor(private api:ApiService){}
 
+  isstyle:boolean=true;
+  isstyle2:boolean=true;
+
   ngOnInit() {
 
   }
 
   addAcct(){
     const obj = {
-      name: 'jaanse',
-      type: 'saving',
-      balance: 10000
+      name: 'soumya',
+      type: 'dmat',
+      balance: 1000
     }
     this.api.postAct(obj).subscribe(res => {
       console.log(res,'res');
@@ -50,4 +57,28 @@ export class AppComponent implements OnInit {
   // placeOrder(orderDetails: any) {
   //   this.socket.emit('new-order', orderDetails);
   // }
+
+  @Input() qrValue: string = '';
+
+  // constructor(private elementRef: ElementRef) {}
+
+  // ngOnChanges(changes: SimpleChanges) {
+  //   if (changes['qrValue'] && this.qrValue) {
+  //     this.generateQRCode();
+  //   }
+  // }
+
+  // generateQRCode() {
+  //   const canvas = this.elementRef.nativeElement.querySelector('canvas');
+  //   QRCode.toCanvas(canvas, this.qrValue, { width: 200 }, (error) => {
+  //     if (error) {
+  //       console.error('Error generating QR code:', error);
+  //     }
+  //   });
+  // }
+
+  warehouses = [
+    { name: 'sample2', type: 'Cold', area: 'Al Ain', price: 20.0, verification: 'Under Process' },
+    { name: 'sample0909', type: 'Ambient', area: 'Dubai Metropolitan Area', price: 30.0, verification: 'Under Process' }
+  ];
 }

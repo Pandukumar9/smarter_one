@@ -1,5 +1,119 @@
-<h1>Hello</h1>
+<!-- <h1>Hello</h1>
 <router-outlet></router-outlet>
 
-<!-- <button (click)="placeOrder(this.data)">place order</button> -->
-<button (click)="addAcct()">add acount</button>
+<button class="btn btn-primary" (click)="addAcct()">add acount</button>
+
+
+<p [ngClass]="isstyle ? 'primary' : isstyle2? '' : '' ">hello test</p>
+
+<div style="display: flex;">
+  <div>
+    madhu
+  </div>
+  <div>
+    karthik
+  </div>
+</div>
+<p class="primary">This text will use the CSS variable color!</p>
+<ul>
+  <li class="primary">Karthik</li>
+  <li>madhu</li>
+  <li>laddu</li>
+</ul>
+
+<canvas #qrCanvas></canvas> -->
+
+
+
+<!-- <div class="container-fluid bg-dark text-white vh-100">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+      <div class="sidebar-sticky">
+        <div class="text-center my-3">
+          <img src="Order.png" alt="Order Placement" class="img-fluid mb-2" style="width: 50px;">
+          <h6>Order Placement</h6>
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-white active" href="#">Warehouse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="dosa">Dosa Items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Employee</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Chat</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-10 ml-sm-auto px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-3">
+        <h1 class="h5">Warehouses</h1>
+        <button class="btn btn-primary">+ Add New Warehouse</button>
+      </div>
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent px-0">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Warehouses</li>
+        </ol>
+      </nav>
+
+      <div class="table-responsive bg-secondary rounded p-3">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <button class="btn btn-danger">Reset</button>
+          <button class="btn btn-outline-light">
+            <i class="bi bi-funnel"></i> Filter
+          </button>
+        </div>
+
+        <table class="table table-dark table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>S.no</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Area</th>
+              <th>Price</th>
+              <th>Verification</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let warehouse of warehouses; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ warehouse.name }}</td>
+              <td>{{ warehouse.type }}</td>
+              <td>{{ warehouse.area }}</td>
+              <td>{{ warehouse.price }}</td>
+              <td><span class="badge bg-warning text-dark">{{ warehouse.verification }}</span></td>
+              <td>
+                <button class="btn btn-link text-white p-0">
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div> -->
+
+<app-common-header></app-common-header>
+<div class="d-flex">
+  <!-- Sidebar -->
+  <app-common-sidebar></app-common-sidebar>
+
+  <!-- Main Content -->
+  <div class="flex-grow-1 p-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<app-common-footer></app-common-footer>
+
+<!-- <app-orders></app-orders> -->
