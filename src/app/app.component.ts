@@ -27,7 +27,9 @@ export class AppComponent implements OnInit {
   isstyle2:boolean=true;
 
   ngOnInit() {
-
+this.api.getAct().subscribe(res => {
+  console.log(res)
+})
   }
 
   addAcct(){

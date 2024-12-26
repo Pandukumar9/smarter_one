@@ -7,33 +7,18 @@
     </button>
   </div>
   <ul class="nav nav-pills flex-column mb-auto px-3">
-    <li class="nav-item">
-      <a class="nav-link text-white" routerLink="/dashboard" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-house-door me-2"></i> Home
-      </a>
-    </li>
-    <li>
-      <a class="nav-link text-white" routerLink="/dosa" routerLinkActive="active">
-        <i class="bi bi-egg-fried me-2"></i> Dosa Items
-      </a>
-    </li>
-    <li>
-      <a class="nav-link text-white" routerLink="/idly" routerLinkActive="active">
-        <i class="bi bi-disc me-2"></i> Idly Items
-      </a>
-    </li>
-    <li>
-      <a class="nav-link text-white" routerLink="/bonda" routerLinkActive="active">
-        <i class="bi bi-cup-hot me-2"></i> Bonda Items
-      </a>
-    </li>
+    @for (item of sidebar_items; track $index) {
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/dashboard" routerLinkActive="active" (click)="selectItem(item.id)"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <i class="bi bi-house-door me-2"></i> {{ item.name }}
+        </a>
+      </li>
+    }
+   
+  
 
-    <li>
-      <a class="nav-link text-white" routerLink="/qrcode" routerLinkActive="active">
-        <i class="bi bi-chat-dots me-2"></i> qrcode
-      </a>
-    </li>
+    
   </ul>
 </div> -->
 
