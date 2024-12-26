@@ -1,7 +1,7 @@
-<div class="d-flex flex-column flex-shrink-0 bg-dark text-white vh-100" id="sidebar">
+<!-- <div class="d-flex flex-column flex-shrink-0 bg-dark text-white vh-100" id="sidebar">
   <div class="d-flex justify-content-between align-items-center px-3 py-2">
     <span class="fs-5 fw-bold">Order Placement</span>
-    <!-- Sidebar Toggle Button for Mobile -->
+    Sidebar Toggle Button for Mobile
     <button class="btn btn-outline-light d-lg-none" type="button" (click)="toggleSidebar()">
       <i class="bi bi-x"></i>
     </button>
@@ -35,4 +35,53 @@
       </a>
     </li>
   </ul>
+</div> -->
+
+<div class="d-flex flex-column flex-shrink-0 bg-dark text-white" id="sidebar">
+  <div class="d-flex justify-content-between align-items-center px-3 py-2" style="flex-direction: column;gap: 8px;">
+    <span class="fs-5 fw-bold">Order Placement</span>
+    <span class="fs-5 fw-bold" (click)="addNew(additem)">Add New</span>
+    <!-- Sidebar Toggle Button for Mobile -->
+    <button class="btn btn-outline-light d-lg-none" type="button" (click)="toggleSidebar()">
+      <i class="bi bi-x"></i>
+    </button>
+  </div>
+  <ul class="nav nav-pills flex-column mb-auto px-3">
+    <li *ngFor="let item of menuItems" class="nav-item">
+      <a
+        class="nav-link text-white"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="bi {{ item.icon }} me-2"></i> {{ item.label }}
+      </a>
+    </li>
+  </ul>
 </div>
+
+<ng-template #additem>
+  <mat-card appearance="outlined" class="card-container">
+    <mat-card-header>
+      <mat-card-title>
+        <h2 class="title">Select a Category</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="select-container">
+        <ng-select [items]="items"
+                   bindLabel="name"
+                   placeholder="Select a fruit"
+                   [(ngModel)]="selectedItem"
+                   class="custom-select">
+        </ng-select>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="submitSelection()" [disabled]="!selectedItem">
+        Submit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
+

@@ -1,0 +1,93 @@
+<div class="contact-us-container py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow border-0">
+          <div class="card-body p-5">
+            <h2 class="text-center mb-4 text-primary fw-bold">Contact Us</h2>
+            <p class="text-muted text-center mb-5">
+              Have any questions or feedback? We’d love to hear from you! Fill out the form below, and we’ll get back to you as soon as possible.
+            </p>
+            <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+              <!-- Name -->
+              <div class="mb-4">
+                <label for="name" class="form-label text-primary fw-bold">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control form-control-lg rounded-pill"
+                  name="name"
+                  [(ngModel)]="contact.name"
+                  required
+                />
+                <div *ngIf="contactForm.submitted && !contactForm.form.controls['name']?.valid" class="text-danger small mt-1">
+                  Name is required.
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-4">
+                <label for="email" class="form-label text-primary fw-bold">Your Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control form-control-lg rounded-pill"
+                  name="email"
+                  [(ngModel)]="contact.email"
+                  required
+                  email
+                />
+                <div *ngIf="contactForm.submitted && !contactForm.form.controls['email']?.valid" class="text-danger small mt-1">
+                  A valid email is required.
+                </div>
+              </div>
+
+              <!-- Subject -->
+              <div class="mb-4">
+                <label for="subject" class="form-label text-primary fw-bold">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  class="form-control form-control-lg rounded-pill"
+                  name="subject"
+                  [(ngModel)]="contact.subject"
+                  required
+                />
+                <div *ngIf="contactForm.submitted && !contactForm.form.controls['subject']?.valid" class="text-danger small mt-1">
+                  Subject is required.
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="mb-4">
+                <label for="message" class="form-label text-primary fw-bold">Your Message</label>
+                <textarea
+                  id="message"
+                  class="form-control form-control-lg rounded"
+                  name="message"
+                  [(ngModel)]="contact.message"
+                  rows="5"
+                  required
+                ></textarea>
+                <div *ngIf="contactForm.submitted && !contactForm.form.controls['message']?.valid" class="text-danger small mt-1">
+                  Message is required.
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="d-grid">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg rounded-pill shadow-sm"
+                  [disabled]="!contactForm.valid"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

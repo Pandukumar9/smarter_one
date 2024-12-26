@@ -70,3 +70,7 @@ sequelize: ORM to interact with PostgreSQL.
 socket.io: For WebSocket real-time communication.
 qrcode: For generating QR codes.
 dotenv: To load environment variables.
+
+
+- breakfast category optiolist
+- 

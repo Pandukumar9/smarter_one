@@ -1,0 +1,114 @@
+<p>add-item works!</p>
+<div class="breakfast-container py-5">
+  <div class="container">
+    <h2 class="text-center text-primary fw-bold mb-4">Breakfast Menu</h2>
+    <p class="text-center text-muted mb-5">
+      Explore our wide range of delicious breakfast options to kickstart your day!
+    </p>
+
+    <!-- Form to Add Category -->
+    <div class="card p-4 mb-5">
+      <h3 class="text-secondary fw-bold mb-3">Add New Category</h3>
+      <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input
+              type="text"
+              formControlName="name"
+              class="form-control"
+              placeholder="Category Name"
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              formControlName="icon"
+              class="form-control"
+              placeholder="Bootstrap Icon (e.g., bi-egg-fried)"
+            />
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Add Category</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Form to Add Items to a Category -->
+    <div *ngFor="let category of breakfastCategories; let i = index" class="mb-5">
+      <h3 class="text-secondary fw-bold mb-3">
+        <i class="bi {{ category.icon }} me-2 text-primary"></i> {{ category.name }}
+      </h3>
+      <form
+        [formGroup]="itemForms[i]"
+        (ngSubmit)="addItem(i)"
+        class="mb-4 bg-light p-3 rounded"
+      >
+        <div class="row g-3">
+          <div class="col-md-3">
+            <input
+              type="text"
+              formControlName="name"
+              class="form-control"
+              placeholder="Item Name"
+            />
+          </div>
+          <div class="col-md-3">
+            <input
+              type="text"
+              formControlName="description"
+              class="form-control"
+              placeholder="Item Description"
+            />
+          </div>
+          <div class="col-md-2">
+            <input
+              type="number"
+              formControlName="price"
+              class="form-control"
+              placeholder="Price (₹)"
+            />
+          </div>
+          <div class="col-md-3">
+            <input
+              type="text"
+              formControlName="image"
+              class="form-control"
+              placeholder="Image URL"
+            />
+          </div>
+          <div class="col-md-1">
+            <button type="submit" class="btn btn-success w-100">Add</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="row g-4">
+        <div
+          class="col-md-6 col-lg-4"
+          *ngFor="let item of category.items"
+        >
+          <div class="card h-100 shadow-sm">
+            <img
+              [src]="item.image"
+              alt="{{ item.name }}"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title fw-bold">{{ item.name }}</h5>
+              <p class="card-text text-muted">{{ item.description }}</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-center">
+              <span class="text-primary fw-bold">₹{{ item.price }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h2>Pay with Google Pay</h2>
+  <button (click)="payWithGPay()">Pay Now</button>
+</div>
